@@ -2,9 +2,9 @@
   "name": "tks-app",
   "version": "1.0.0",
   "description": "A general all purpose app for the purpose of sharing notes between university students",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
