@@ -1,2 +1,2 @@
 # TKS-APP
-A general all purpose app for the purpose of sharing notes between university students
+Is an app made specifically for durham badminton students with the plan to have a university wide ranking (elo) system
