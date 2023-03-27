@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/Shak1011/TKS-APP/issues"
   },
-  "homepage": "https://github.com/Shak1011/TKS-APP#readme",
-  "devDependencies": {
-    "electron": "^23.1.1"
-  }
+  "homepage": "https://github.com/Shak1011/TKS-APP#readme"
 }
