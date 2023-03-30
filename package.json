@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Shak1011/TKS-APP/issues"
   },
-  "homepage": "https://github.com/Shak1011/TKS-APP#readme"
+  "homepage": "https://github.com/Shak1011/TKS-APP#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.10.3"
+  }
 }
