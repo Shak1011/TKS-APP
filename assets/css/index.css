@@ -1,0 +1,23 @@
+body {
+    background-color: #1C1719;
+}
+
+.sidenav {
+    background-color: #382E32;
+    height: 100%;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+h4 {
+    color: #ffffff;
+}
+p {
+   color: #ffffff; 
+}
+.well {
+    background-color: #382E32;
+    border-width:0ex;
+}

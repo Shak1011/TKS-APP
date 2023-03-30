@@ -5,22 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-        
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
   </style>
 </head>
 <body>
@@ -49,7 +39,7 @@
     <div class="col-sm-3 sidenav hidden-xs">
       <h2>Durham Badminton</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li class="active"><a href="#section1">Profile</a></li>
         <li><a href="#section2">Games</a></li>
       </ul><br>
       <ul class="list-group list-group-horizontal flex-fill">
@@ -59,36 +49,16 @@
     <br>
     
     <div class="col-sm-9">
+      <div class="well profile-heading">
+        <h4>/* This will be profile pic followed by username*/</h4>
+        <p>/*This will be basic user stats including elo and games played ...</p>
+      </div>
       <div class="well">
-        <h4>Dashboard</h4>
-        <p>Some text..</p>
+        <h4>Recent games</h4>
+        <p>Insert short table of recent games</p>
+        <p>Game against|win/loss|date|elo change</p>
       </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Users</h4>
-            <p>1 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Pages</h4>
-            <p>100 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Sessions</h4>
-            <p>10 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Bounce</h4>
-            <p>30%</p> 
-          </div>
-        </div>
-      </div>
+      <div class="well"><p>/*insert a graph of elo over time here*/</p></div>
       <div class="row">
         <div class="col-sm-4">
           <div class="well">
