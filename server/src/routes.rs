@@ -1,9 +1,10 @@
+use actix_files::NamedFile;
 use actix_web::{get, HttpResponse, Responder};
 use serde_json::json;
 
 #[get("/")]
-pub async fn index() -> impl Responder {
-    HttpResponse::Ok().body("<h1>Hello world!</h1>")
+pub async fn index() -> Result<NamedFile, std::io::Error> {
+    NamedFile::open("../index.html")
 }
 
 #[get("/health")]
