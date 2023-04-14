@@ -14,10 +14,19 @@ h2 {
 h4 {
     color: #ffffff;
 }
+
+h7 {
+    color: white;
+}
+
 p {
    color: #ffffff; 
 }
 .well {
     background-color: #382E32;
     border-width:0ex;
+}
+
+.navbar-bg-dark {
+    background-color: #3d383a;
 }
