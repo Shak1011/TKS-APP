@@ -4,7 +4,7 @@
   "description": "A general all purpose app for the purpose of sharing notes between university students",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "cargo run Cargo.toml"
   },
   "repository": {
     "type": "git",

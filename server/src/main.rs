@@ -1,6 +1,7 @@
 #![allow(unused_imports)]
 
 use sqlx::{migrate::MigrateDatabase, FromRow, Row, Sqlite, SqlitePool, Connection};
+use actix_files as fs;
 use actix_web::{get, post, web, App, HttpServer, HttpResponse, Responder};
 use sqlx::sqlite::{SqlitePoolOptions,SqliteQueryResult, SqliteRow};
 
@@ -61,6 +62,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(app_state.clone())) //uses the database pool
+            .service(fs::Files::new("/client","../client").show_files_listing())
             .service(routes::index)
             .service(
                 web::scope("/api")

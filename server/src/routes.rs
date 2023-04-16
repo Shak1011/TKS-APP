@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use actix_files::NamedFile;
-use actix_web::{get, post, web, App, HttpServer, HttpResponse, Responder};
+use actix_web::{web::Redirect, get, post, web, App, HttpServer, HttpResponse, Responder};
 use sqlx::{migrate::MigrateDatabase, FromRow, Row, Sqlite, SqlitePool, Connection};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
@@ -21,10 +21,9 @@ struct Response {
     message: String,
 }
 
-
 #[get("/")]
-pub async fn index() -> Result<NamedFile, std::io::Error> {
-    NamedFile::open("../index.html")
+pub async fn index() -> impl Responder {
+    Redirect::to("http://127.0.0.1:8080/client/index.html").permanent()
 }
 
 #[get("/health")]
@@ -47,7 +46,6 @@ pub async fn get_user(path: web::Path<i32>, app_state: web::Data<AppState>) -> i
 
     HttpResponse::Ok().json(users)
 }
-
 
 
 #[get("/users")]
