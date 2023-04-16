@@ -58,7 +58,6 @@ async fn main() -> std::io::Result<()> {
 
 
 
-
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(app_state.clone())) //uses the database pool
@@ -69,6 +68,7 @@ async fn main() -> std::io::Result<()> {
                 .service(routes::health)
                 .service(routes::get_all_users)
                 .service(routes::get_user)
+                .service(routes::get_all_users_elo)
             )
     })
     .bind(("127.0.0.1", 8080))?
