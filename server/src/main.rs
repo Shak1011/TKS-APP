@@ -50,11 +50,13 @@ async fn main() -> std::io::Result<()> {
         .execute(&db).await.unwrap();
     println!("Create user table result: {:?}", result);
     
-    let _result = sqlx::query("INSERT INTO users (name,email,HashedPassword,Elo) VALUES ($1,$2,$3,$4)")
-    .bind("shak").bind("hscq37@durham.ac.uk").bind("HASHEDPASSWORD").bind(1000)
-    .execute(&db)
-    .await
-    .unwrap();
+    // let _result = sqlx::query("INSERT INTO users (name,email,HashedPassword,Elo) VALUES ($1,$2,$3,$4)")
+    // .bind("shak").bind("hscq37@durham.ac.uk").bind("HASHEDPASSWORD").bind(1000)
+    // .execute(&db)
+    // .await
+    // .unwrap();
+
+
 
     HttpServer::new(move || {
         App::new()
@@ -66,6 +68,7 @@ async fn main() -> std::io::Result<()> {
                 .service(routes::health)
                 .service(routes::get_all_users)
                 .service(routes::get_user)
+                .service(routes::get_all_users_elo)
             )
     })
     .bind(("127.0.0.1", 8080))?

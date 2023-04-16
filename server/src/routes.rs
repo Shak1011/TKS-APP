@@ -18,6 +18,12 @@ struct User {
     Elo: i32,
 }
 
+#[derive(FromRow, Debug, Serialize, Deserialize)]
+struct Elo {
+    name: String,
+    Elo: i32,
+}
+
 #[derive(Serialize, Deserialize)]
 struct Response {
     message: String,
@@ -56,4 +62,13 @@ pub async fn get_all_users(app_state: web::Data<AppState>) -> impl Responder {
     .fetch_all(&app_state.pool).await.unwrap();
 
     HttpResponse::Ok().json(users)
+}
+
+
+#[get("/elo")]
+pub async fn get_all_users_elo(app_state: web::Data<AppState>) -> impl Responder {
+    let elos: Vec<Elo> = sqlx::query_as::<_, Elo>("SELECT name, elo FROM users ORDER BY elo DESC") 
+    .fetch_all(&app_state.pool).await.unwrap();
+
+    HttpResponse::Ok().json(elos)
 }
