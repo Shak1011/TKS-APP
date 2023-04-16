@@ -41,23 +41,20 @@ async fn main() -> std::io::Result<()> {
 
     //Code beneath is used to insert data into the database. Uncomment if you want to insert the data or the table.
 
-    // let db = SqlitePool::connect(DB_URL).await.unwrap();
-    // let result = sqlx::query("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY NOT NULL,
-    //     name VARCHAR(250) NOT NULL,
-    //     email VARCHAR(250) NOT NULL,
-    //     HashedPassword VARCHAR(250) NOT NULL,
-    //     Elo INTEGER NOT NULL);")
-    //     .execute(&db).await.unwrap();
-    // println!("Create user table result: {:?}", result);
+    let db = SqlitePool::connect(DB_URL).await.unwrap();
+    let result = sqlx::query("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY NOT NULL,
+        name VARCHAR(250) NOT NULL,
+        email VARCHAR(250) NOT NULL,
+        HashedPassword VARCHAR(250) NOT NULL,
+        Elo INTEGER NOT NULL);")
+        .execute(&db).await.unwrap();
+    println!("Create user table result: {:?}", result);
     
-    // let _result = sqlx::query("INSERT INTO users (name,email,HashedPassword,Elo) VALUES ($1,$2,$3,$4)")
-    // .bind("shak").bind("hscq37@durham.ac.uk").bind("HASHEDPASSWORD").bind(1000)
-    // .execute(&db)
-    // .await
-    // .unwrap();
-
-
-
+    let _result = sqlx::query("INSERT INTO users (name,email,HashedPassword,Elo) VALUES ($1,$2,$3,$4)")
+    .bind("shak").bind("hscq37@durham.ac.uk").bind("HASHEDPASSWORD").bind(1000)
+    .execute(&db)
+    .await
+    .unwrap();
 
     HttpServer::new(move || {
         App::new()

@@ -1,5 +1,7 @@
 #![allow(non_snake_case)]
 
+use std::result;
+
 use actix_files::NamedFile;
 use actix_web::{web::Redirect, get, post, web, App, HttpServer, HttpResponse, Responder};
 use sqlx::{migrate::MigrateDatabase, FromRow, Row, Sqlite, SqlitePool, Connection};
@@ -22,8 +24,8 @@ struct Response {
 }
 
 #[get("/")]
-pub async fn index() -> impl Responder {
-    Redirect::to("http://127.0.0.1:8080/client/index.html").permanent()
+pub async fn index() -> Result<NamedFile, std::io::Error>{
+    NamedFile::open("../client/index.html")
 }
 
 #[get("/health")]
