@@ -42,7 +42,8 @@ pub async fn health() -> impl Responder {
 #[get("/get/{id}")]
 pub async fn get_user(path: web::Path<i32>, app_state: web::Data<AppState>) -> impl Responder{
     let user_id: i32 = path.into_inner(); 
-    let query = format!("SELECT * FROM users WHERE id = {}", user_id);
+    let query = format!("SELECT * FROM users WHERE user_id = {}", user_id);
+    println!("{}", query);
     let users: Vec<User> = sqlx::query_as::<_, User>(&query) //Note: honestly couldn't figure out why I could not use the query_as! macro. It something to do with database url tho.
     .fetch_all(&app_state.pool).await.unwrap();
 
