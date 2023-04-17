@@ -11,7 +11,7 @@ use crate::{AppState};
 
 #[derive(FromRow, Debug, Serialize, Deserialize)]
 struct User {
-    id: i32,
+    user_id: i32,
     name: String,
     email: String,
     HashedPassword: String,
