@@ -31,7 +31,7 @@ struct Response {
     message: String,
 }
 
-#[get("/")]
+#[get("/users")]
 pub async fn index() -> Result<NamedFile, std::io::Error>{
     NamedFile::open("../client/index.html")
 }
