@@ -77,6 +77,7 @@ async fn main() -> std::io::Result<()> {
                 .service(routes::get_all_users)
                 .service(routes::get_user)
                 .service(routes::get_all_users_elo)
+                .service(routes::update_users_elo)
             )
     })
     .bind(("127.0.0.1", 8080))?
