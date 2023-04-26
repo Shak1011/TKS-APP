@@ -1,5 +1,5 @@
-use sqlx::{migrate::MigrateDatabase, Row, Sqlite, SqlitePool};
-
+use sqlx::{migrate::MigrateDatabase, Sqlite, SqlitePool};
+//use hashing::{hash, hash_to_string};
 const DB_URL: &str = "sqlite://Users.db";
 
 #[tokio::main]
@@ -28,3 +28,7 @@ async fn main() {
     .await
     .unwrap();
 }
+
+
+
+
